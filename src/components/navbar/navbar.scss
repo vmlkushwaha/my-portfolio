@@ -1,0 +1,37 @@
+@import "../../styles/mixin";
+@import "../../styles/variables";
+
+.navbar {
+  @include flexbox(row, center, center, 1.5rem);
+  padding: 0.75rem;
+  text-transform: capitalize;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  &_element {
+    @include font-head(0.85rem, 600);
+    @include transition(all, 150ms);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $accentColor;
+      width: 0;
+      height: 0.15rem;
+      @include transition(all, 150ms);
+    }
+
+    &:hover {
+      color: $accentColor;
+      cursor: pointer;
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+}
