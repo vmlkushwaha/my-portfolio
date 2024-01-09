@@ -1,22 +1,39 @@
+import {
+  FaCss3,
+  FaGitAlt,
+  FaHtml5,
+  FaNodeJs,
+  FaReact,
+  FaSass,
+} from "react-icons/fa";
+import { GiBearFace } from "react-icons/gi";
+import { IoLogoJavascript } from "react-icons/io5";
+import {
+  SiExpress,
+  SiMongodb,
+  SiMui,
+  SiReactquery,
+  SiTypescript,
+  SiVite,
+} from "react-icons/si";
 import { IMAGES } from "../assets";
 import MainHeading from "../components/MainHeading";
-
 const About = () => {
   const skills = [
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "ReactJS",
-    "React Query",
-    "TypeScript",
-    "Sass",
-    "Material-UI",
-    "GIT",
-    "Vite",
-    "Zustand",
-    "NodeJS",
-    "Express",
-    "MongoDB",
+    { icons: <FaHtml5 />, title: "HTML" },
+    { icons: <FaCss3 />, title: "CSS" },
+    { icons: <IoLogoJavascript />, title: "JavaScript" },
+    { icons: <FaReact />, title: "ReactJS" },
+    { icons: <SiReactquery />, title: "React Query" },
+    { icons: <SiTypescript />, title: "TypeScript" },
+    { icons: <FaSass />, title: "Sass" },
+    { icons: <SiMui />, title: "Material-UI" },
+    { icons: <FaGitAlt />, title: "GIT" },
+    { icons: <SiVite />, title: "Vite" },
+    { icons: <GiBearFace />, title: "Zustand" },
+    { icons: <FaNodeJs />, title: "NodeJS" },
+    { icons: <SiExpress />, title: "Express" },
+    { icons: <SiMongodb />, title: "MongoDB" },
   ];
 
   return (
@@ -41,7 +58,21 @@ const About = () => {
         <MainHeading title="Skills" className="" />
         <div className="about_right-skills">
           {skills.map((ele) => {
-            return <p className="skill_chips">{ele}</p>;
+            const styleObj = [
+              "ReactJS",
+              "TypeScript",
+              "NodeJS",
+              "Sass",
+              "Zustand",
+            ].includes(ele.title)
+              ? { fontWeight: 600, fontSize: "1rem" }
+              : {};
+            return (
+              <div className="skill_chips">
+                {ele.icons}
+                <p style={styleObj}>{ele.title}</p>
+              </div>
+            );
           })}
         </div>
       </div>

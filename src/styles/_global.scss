@@ -25,10 +25,16 @@
   @include font-body(1rem);
 }
 .skill_chips {
-  @include font-body(1rem);
-  color: $accentColor;
-  border: 1px solid $accentColor;
+  @include flexbox(row, center, center, 0.5rem);
+  color: $nightColor;
   border-radius: 4px;
   text-align: center;
-  padding: 0.75rem;
+  padding: 1rem;
+  p {
+    @include font-head(0.85rem, 500);
+  }
+  svg {
+    height: 1.85rem;
+    width: 1.85rem;
+  }
 }
